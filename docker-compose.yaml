@@ -2,14 +2,14 @@ version: '3'
 services:
   frontend:
     build:
-      context: "./src/frontend"
+      context: "./src/clients"
       dockerfile: "Dockerfile"
     ports:
       - "80:80"
     restart: always
   backend:
     build:
-      context: "./src/backend"
+      context: "./src/server"
       dockerfile: "gRpcFileService-Sample.Server/Dockerfile"
     ports:
       - "7979:80"
