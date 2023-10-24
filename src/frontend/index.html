@@ -7,5 +7,16 @@
 </head>
 <body>
     Jebac komune
+    <button onclick="getBackendData()">Duoa</button>
+    <p id="test"></p>
 </body>
+<script>
+    function getBackendData(){
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", "http://localhost:7979/", false ); 
+        xmlHttp.setRequestHeader("Access-Control-Allow-Origin","*");
+        xmlHttp.send( null );
+        document.getElementById("test").innerHTML = xmlHttp.responseText
+    }
+</script>
 </html>
