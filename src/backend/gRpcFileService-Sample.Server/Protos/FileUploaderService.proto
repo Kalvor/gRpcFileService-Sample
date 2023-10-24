@@ -1,0 +1,9 @@
+﻿syntax = "proto3";
+package FileUploaderService;
+option csharp_namespace = "gRpcFileServiceSample.Server.Protos";
+import "Protos/FileUploadRequest.proto";
+import "Protos/FileUploadResponse.proto";
+
+service FileUploaderService {
+  rpc UploadFile (stream FileUploadRequest) returns (FileUploadResponse);
+}
