@@ -2,7 +2,7 @@ version: '3'
 services:
   server:
     build:
-      context: "./src/server"
+      context: "./src/application"
       dockerfile: "gRpcFileService-Sample.Server/Dockerfile"
     ports:
       - "7979:80"

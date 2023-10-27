@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>gRpcFileService_Sample.Client</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\FileUploaderService.proto" />
+    <None Remove="Protos\FileUploadRequest.proto" />
+    <None Remove="Protos\FileUploadResponse.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.Net.Client" Version="2.58.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.59.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Google.Protobuf" Version="3.24.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\FileUploaderService.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\FileUploadRequest.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\FileUploadResponse.proto" GrpcServices="Client" />
+  </ItemGroup>
+
+</Project>

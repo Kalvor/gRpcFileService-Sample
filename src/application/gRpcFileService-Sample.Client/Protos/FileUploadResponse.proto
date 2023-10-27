@@ -1,6 +1,6 @@
 ﻿syntax = "proto3";
 package FileUploaderService;
-option csharp_namespace = "gRpcFileServiceSample.Server.Protos";
+option csharp_namespace = "gRpcFileServiceSample.Client.Protos";
 
 message FileUploadResponse {
 	string fileName=1;
