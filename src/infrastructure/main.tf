@@ -77,5 +77,20 @@ resource "azurerm_linux_web_app" "grpcserver" {
     "BlobStorageConnection__StorageAccountName" = azurerm_storage_account.sa.name
     "BlobStorageConnection__Url" = "https://${azurerm_storage_account.sa.name}.blob.core.windows.net"
     "BlobStorageConnection__SAS" = data.azurerm_storage_account_sas.sa_data.sas
+    "HTTP20_ONLY_PORT" = 7059
   }
+}
+
+#not working???? #https://github.com/hashicorp/terraform-provider-azurerm/issues/18883
+resource "azapi_update_resource" "sethttp2proxyforgrpcserver" {
+  type        = "Microsoft.Web/sites@2022-09-01"
+  resource_id = azurerm_linux_web_app.grpcserver.id
+  body = jsonencode({
+    properties = {
+      siteConfig = {
+        http20ProxyFlag = 1
+        http20Enabled   = true
+      }
+    }
+  })
 }

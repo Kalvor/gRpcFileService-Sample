@@ -2,7 +2,7 @@
 using gRpcFileServiceSample.Client.Protos;
 using System.Diagnostics;
 
-var channel = GrpcChannel.ForAddress("https://localhost:7060");
+var channel = GrpcChannel.ForAddress("https://grpcfileserviceserver.azurewebsites.net");
 var fileClient = new FileUploaderService.FileUploaderServiceClient(channel);
 
 
@@ -31,7 +31,7 @@ Console.WriteLine("Small ALLOC sast");
 var st3 = Stopwatch.StartNew();
 st3.Start();
 using var call3 = fileClient.UploadFileSmallAllocationFast();
-await UploadAsync("Jest.jpg", call3, file);
+await UploadAsync("dasdasdas.jpg", call3, file);
 st3.Stop();
 Console.WriteLine(st3.ElapsedMilliseconds / 1000);
 Console.ReadLine();
