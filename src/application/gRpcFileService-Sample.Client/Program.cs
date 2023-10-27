@@ -52,4 +52,6 @@ static async Task UploadAsync(string fileName, Grpc.Core.AsyncClientStreamingCal
     }
     await call.RequestStream.CompleteAsync();
     var response = await call;
+    Console.WriteLine(response.FileName);
+    Console.WriteLine(response.TotalSize);
 }
